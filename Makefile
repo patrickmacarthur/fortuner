@@ -4,10 +4,6 @@
 # Required by GNU make conventions
 SHELL = /bin/sh
 
-# Clear suffix list and add only suffixes that we use
-SUFFIXES:
-SUFFIXES: .c .o
-
 # CFLAGS required to find libnotify/glib headers
 CFLAGS_libnotify = $(shell pkg-config --cflags libnotify)
 #
@@ -24,14 +20,17 @@ LDFLAGS = -g
 CFLAGS_ALL = $(CFLAGS_libnotify) $(CFLAGS)
 LDFLAGS_ALL = $(LIBS_libnotify) $(LDFLAGS)
 
-# Implicit rule for compiling C files
-.c.o:
-	$(CC) -c $(CPPFLAGS) $(CFLAGS_ALL) $<
-
 # Default rule: build executables
 .PHONY: all
 all: fortuner
 
+# Clear suffix list and add only suffixes that we use
+SUFFIXES:
+SUFFIXES: .c .o
+
+# Implicit rule for compiling C files
+.c.o:
+	$(CC) -c $(CPPFLAGS) $(CFLAGS_ALL) $<
 
 fortuner: fortuner.o
 	$(CC) $(LDFLAGS_ALL) -o $@ $^
