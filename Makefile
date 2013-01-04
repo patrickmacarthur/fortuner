@@ -18,7 +18,7 @@ LDFLAGS = -g
 
 # All CFLAGS/LDFLAGS required for compilation/linking
 CFLAGS_ALL = $(CFLAGS_libnotify) $(CFLAGS)
-LDFLAGS_ALL = $(LIBS_libnotify) $(LDFLAGS)
+LDLIBS_ALL = $(LIBS_libnotify) $(LDLIBS)
 
 # Default rule: build executables
 .PHONY: all
@@ -33,7 +33,7 @@ SUFFIXES: .c .o
 	$(CC) -c $(CPPFLAGS) $(CFLAGS_ALL) $<
 
 fortuner: fortuner.o
-	$(CC) $(LDFLAGS_ALL) -o $@ $^
+	$(CC) $(LDFLAGS) -o $@ $^ $(LDLIBS_ALL)
 
 .PHONY: clean
 clean:
