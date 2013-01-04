@@ -88,12 +88,15 @@ int main()
 	if (!run_fortune(fortune, BUFSIZE)) {
 		notification = notify_notification_new("Today's Fortune",
 								fortune, NULL);
+		error = NULL;
 		status = notify_notification_show(notification, &error);
 		if (!status) {
-			fprintf(stderr, "Oops!\n");
+			fprintf(stderr, "Could not display notification: %s\n",
+					error->message);
 		}
 	}
 
+	free(fortune);
 	notify_uninit();
 	return 0;
 }
