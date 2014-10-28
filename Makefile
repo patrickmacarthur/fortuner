@@ -1,5 +1,5 @@
 # Makefile
-# Patrick MacArthur <generalpenguin89@gmail.com>
+# Patrick MacArthur <contact@patrickmacarthur.net>
 
 # Required by GNU make conventions
 SHELL = /bin/sh

@@ -1,5 +1,5 @@
 /* fortuner.c
- * Patrick MacArthur <generalpenguin89@gmail.com>
+ * Patrick MacArthur <contact@patrickmacarthur.net>
  * Displays a fortune as a notification using the GNOME libnotify
  * library.
  */
